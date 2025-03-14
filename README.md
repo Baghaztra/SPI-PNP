@@ -2,7 +2,7 @@
 
 # SIWAS (Sistem Informasi Pengawasan Internal Kampus)
 
-Aplikasi web berbasis **Laravel 11** untuk mengelola data internal kampus Politeknik Negeri Padang.
+Aplikasi web berbasis **Laravel 12** untuk mengelola data internal kampus Politeknik Negeri Padang.
 ## Fitur Utama
 
 - **Manajemen Pengguna & Hak Akses**  
@@ -16,7 +16,7 @@ Aplikasi web berbasis **Laravel 11** untuk mengelola data internal kampus Polite
 
 ## Teknologi yang Digunakan
 
-- **Laravel 11**  
+- **Laravel 12**  
   Framework PHP modern untuk membangun aplikasi web yang terstruktur.
 - **SQLite**  
   Database default yang ringan dan mudah dikonfigurasi, ideal untuk tahap awal pengembangan.
