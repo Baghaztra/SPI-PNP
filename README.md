@@ -28,7 +28,7 @@ Aplikasi web berbasis **Laravel 11** untuk mengelola data internal kampus Polite
 1. **Clone Repository**
 ```bash
 git clone https://github.com/Baghaztra/SIWAS.git
-cd siwas
+cd SIWAS
 ```
 
 2. **Install Dependensi**
