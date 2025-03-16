@@ -1,76 +1,78 @@
-<nav class="navbar navbar-expand navbar-light">
-    <div class="container-fluid">
-        <button class="btn btn-link px-3 sidebar-toggler d-md-none" id="sidebarToggle">
-            <i class="fas fa-bars"></i>
+<div class="p-3 bg-primary text-white">
+    <div class="container">
+        <div class="navbar-brand d-flex gap-3">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" style="height: 50px; width: auto;">
+            <div>
+                <h1 class="mb-0 fs-4">Satuan Pengawas Internal | PNP</h1>
+                <span class="fs-6">Profesional dan berintegritas</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+    <div class="container bg-dark">
+        <!-- Tombol Toggle untuk Mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="navbar-collapse">
-            <!-- Search Form -->
-            <form class="d-none d-md-flex ms-4 flex-grow-1">
-                <div class="input-group">
-                    <span class="input-group-text border-0 bg-light">
-                        <i class="fas fa-search text-secondary"></i>
-                    </span>
-                    <input type="text" class="form-control border-0 bg-light" placeholder="Search...">
-                </div>
-            </form>
-
-            <ul class="navbar-nav ms-auto">
-                <!-- Notifications -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link px-3" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="fas fa-bell"></i>
-                        <span class="position-absolute top-25 start-75 translate-middle badge rounded-pill bg-danger">
-                            3
-                        </span>
+        <!-- Menu Utama -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('home') ? 'active bg-primary' : '' }}" href="{{ route('home') }}">
+                        Home
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
-                        <h6 class="dropdown-header">Notifications</h6>
-                        <a class="dropdown-item py-2" href="#">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-envelope fa-fw text-primary"></i>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="mb-0">You have 3 new messages</p>
-                                    <small class="text-muted">15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-center small text-secondary" href="#">Show all notifications</a>
-                    </div>
                 </li>
 
-                <!-- User Menu -->
+                <!-- Dropdown Profile -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link px-3 dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
-                        <img src="https://ui-avatars.com/api/?name=Admin&background=ff6b2b&color=fff" 
-                             class="rounded-circle me-2" 
-                             width="32" 
-                             height="32">
-                        <span>{{ Auth::user()->name ?? "Admin" }}</span>
+                    <a class="nav-link dropdown-toggle {{ request()->routeIs('profile.*') ? 'active bg-primary' : '' }}" href="#" role="button" data-bs-toggle="dropdown">
+                        Profile
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
-                        <a class="dropdown-item" href="{{ route('admin.profile') }}">
-                            <i class="fas fa-user fa-fw me-2 text-secondary"></i>
-                            My Profile
-                        </a>
-                        <a class="dropdown-item" href="{{ route('admin.settings') }}">
-                            <i class="fas fa-cog fa-fw me-2 text-secondary"></i>
-                            Settings
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="dropdown-item text-danger">
-                                <i class="fas fa-sign-out-alt fa-fw me-2"></i>
-                                Logout
-                            </button>
-                        </form>
-                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
+                        <li><a class="dropdown-item" href="{{ route('profile.sejarah') }}">Sejarah</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profile.struktur') }}">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profile.tugas-fungsi') }}">Tugas & Fungsi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profile.visi-misi') }}">Visi & Misi</a></li>
+                    </ul>
                 </li>
+
+                <!-- Dropdown Kegiatan -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Kegiatan
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Audit</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Monev</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Bantuan Kepentingan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Review</a></li>
+                    </ul>
+                </li>
+
+                <!-- Dropdown Layanan -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Layanan
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Pendampingan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Pengaduan Masyarakat</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Penguatan Pengawasan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">Unit Pengendali Gratifikasi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">WBS</a></li>
+                        <li><a class="dropdown-item" href="{{ route('home') }}">SPIP</a></li>
+                    </ul>
+                </li>
+
+                <!-- Menu Lainnya -->
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Peraturan</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('siwas.dashboard') ? 'active bg-primary' : '' }}" href="{{ route('siwas.dashboard') }}">SIWAS</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">SATIK</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Lapor</a></li>
             </ul>
         </div>
     </div>
-</nav> 
+</nav>

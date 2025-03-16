@@ -5,38 +5,51 @@ use Illuminate\Support\Facades\Route;
 
 // Landing Page
 Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
+    return view('home');
+})->name('home');
+
+// Profile Routes
+Route::prefix('profile')->name('profile.')->group(function () {
+    Route::get('/sejarah', function () {
+        return view('profile.sejarah');
+    })->name('sejarah');
+    
+    Route::get('/struktur', function () {
+        return view('profile.struktur');
+    })->name('struktur');
+    
+    Route::get('/visi-misi', function () {
+        return view('profile.visi-misi');
+    })->name('visi-misi');
+    
+    Route::get('/tugas-fungsi', function () {
+        return view('profile.tugas-fungsi');
+    })->name('tugas-fungsi');
 });
 
-// Admin Routes
-Route::prefix('admin')->name('admin.')->group(function () {
-    // Dashboard
+// SIWAS Routes
+Route::prefix('siwas')->name('siwas.')->group(function () {
     Route::get('/dashboard', function () {
-        return view('SIWAS.dashboard');
+        return view('siwas.dashboard');
     })->name('dashboard');
     
-    // Users Management
-    Route::get('/users', function () {
-        return view('SIWAS.users.index');
-    })->name('users.index');
-    
-    Route::get('/users/create', function () {
-        return view('SIWAS.users.create');
-    })->name('users.create');
-    
-    Route::get('/users/{id}/edit', function ($id) {
-        return view('SIWAS.users.edit', compact('id'));
-    })->name('users.edit');
-    
-    // Profile
     Route::get('/profile', function () {
-        return view('SIWAS.profile');
+        return view('siwas.profile');
     })->name('profile');
     
-    // Settings
     Route::get('/settings', function () {
-        return view('SIWAS.settings');
+        return view('siwas.settings');
     })->name('settings');
+    
+    Route::get('/users', function () {
+        return view('siwas.users.index');
+    })->name('users.index');
+    Route::get('/users/create', function () {
+        return view('siwas.users.create');
+    })->name('users.create');
+    Route::get('/users/edit', function () {
+        return view('siwas.users.edit');
+    })->name('users.edit');
 });
 
 // Authentication

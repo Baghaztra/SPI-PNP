@@ -1,11 +1,11 @@
-@extends('layouts.admin')
+@extends('layouts.siwas')
 
 @section('title', 'Add New User')
 
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3 mb-0 text-gray-800">Add New User</h1>
-    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
+    <a href="{{ route('siwas.users.index') }}" class="btn btn-secondary">
         <i class="fas fa-arrow-left me-2"></i>Back to List
     </a>
 </div>

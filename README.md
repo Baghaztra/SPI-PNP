@@ -1,18 +1,8 @@
 <p align="center"><img src="./public/images/logo.png" width="200" alt="PNP Logo"></p>
 
-# SIWAS (Sistem Informasi Pengawasan Internal Kampus)
+# Satuan Pengawas Internal | PNP
 
 Aplikasi web berbasis **Laravel 12** untuk mengelola data internal kampus Politeknik Negeri Padang.
-## Fitur Utama
-
-- **Manajemen Pengguna & Hak Akses**  
-  Menggunakan [Spatie Laravel Permission](https://github.com/spatie/laravel-permission) untuk mengelola peran dan izin dengan dua level: _super admin_ dan _admin_.
-  
-- **Import/Export Data**  
-  Menggunakan [Laravel Excel](https://github.com/Maatwebsite/Laravel-Excel) untuk memudahkan proses import dan export data, misalnya laporan realisasi anggaran.
-
-- **Manajemen Dokumen**  
-  Menggunakan [Spatie Laravel Medialibrary](https://github.com/spatie/laravel-medialibrary) untuk pengelolaan file dan dokumen secara otomatis (upload, penyimpanan, transformasi file).
 
 ## Teknologi yang Digunakan
 
@@ -23,12 +13,23 @@ Aplikasi web berbasis **Laravel 12** untuk mengelola data internal kampus Polite
 - **Composer**  
   Dependency manager untuk PHP.
 
+## Teknologi Penjunjang
+
+- **Manajemen Pengguna & Hak Akses**  
+  Menggunakan [Spatie Laravel Permission](https://github.com/spatie/laravel-permission) untuk mengelola peran dan izin dengan dua level: _super admin_ dan _admin_.
+  
+- **Import/Export Data**  
+  Menggunakan [Laravel Excel](https://github.com/Maatwebsite/Laravel-Excel) untuk memudahkan proses import dan export data, misalnya laporan realisasi anggaran.
+
+- **Manajemen Dokumen**  
+  Menggunakan [Spatie Laravel Medialibrary](https://github.com/spatie/laravel-medialibrary) untuk pengelolaan file dan dokumen secara otomatis (upload, penyimpanan, transformasi file).
+
 ## Instalasi
 
 1. **Clone Repository**
 ```bash
-git clone https://github.com/Baghaztra/SIWAS.git
-cd SIWAS
+git clone https://github.com/Baghaztra/SPI-PNP.git
+cd SPI-PNP
 ```
 
 2. **Install Dependensi**

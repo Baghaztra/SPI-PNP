@@ -1,11 +1,11 @@
-@extends('layouts.admin')
+@extends('layouts.siwas')
 
 @section('title', 'Users Management')
 
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3 mb-0 text-gray-800">Users Management</h1>
-    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">
+    <a href="{{ route('siwas.users.create') }}" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>Add New User
     </a>
 </div>
@@ -30,7 +30,7 @@
                         <td>Admin</td>
                         <td><span class="badge bg-success">Active</span></td>
                         <td>
-                            <a href="{{ route('admin.users.edit', 1) }}" class="btn btn-sm btn-accent me-2">
+                            <a href="{{ route('siwas.users.edit', 1) }}" class="btn btn-sm btn-accent me-2">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <button class="btn btn-sm btn-danger">

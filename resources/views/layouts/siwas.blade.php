@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') - Admin Dashboard</title>
+    <title>@yield('title') - SIWAS</title>
     
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <!-- Navbar -->
-            @include('components.navbar')
+            @include('components.siwas-navbar')
 
             <!-- Main Content -->
             <div class="container-fluid px-4 py-4">
@@ -44,6 +44,8 @@
 
                 @yield('content')
             </div>
+
+            @include('components.footer')
         </div>
     </div>
 

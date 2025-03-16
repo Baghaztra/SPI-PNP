@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.siwas')
 
 @section('title', 'Settings')
 
