@@ -1,0 +1,83 @@
+/* Sidebar */
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+/* Custom Styles */
+.sidebar-heading img {
+    margin-right: 10px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 0.75rem 1.25rem;
+}
+
+.list-group-item.active {
+    background-color: #ff6b2b;
+    border-color: #ff6b2b;
+}
+
+.list-group-item i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* Content Area */
+.container-fluid {
+    padding: 20px;
+}
+
+/* Card Styles */
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Table Styles */
+.table th {
+    border-top: none;
+    background-color: #f8f9fa;
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+} 
