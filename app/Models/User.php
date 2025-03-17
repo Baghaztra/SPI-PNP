@@ -9,24 +9,25 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    protected $guarded = ['id'];
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'alias',
+        'status',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -34,15 +35,38 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+    // public function getAlias($nama)
+    // {
+    //     $words = explode(' ', $nama);
+    //     $alias = '';
+
+    //     foreach ($words as $word) {
+    //         if (strlen($word) >= 2) {
+    //             $alias .= substr($word, 0, 1);
+    //         } else {
+    //             $alias .= substr($word, 0);
+    //         }
+    //     }
+    //     return $alias;
+    // }
+    public function sendPasswordResetNotification($token): void
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        // $url = 'http://127.0.0.1:8000/password.reset?token='.$token;
+
+        // $this->notify(new ResetPasswordNotification($url));
+
+    //     $url = URL::signedRoute(
+    //         'password.reset',
+    //         ['token' => $token, 'email' => $this->getEmailForPasswordReset()]
+    //     );
+
+    //     $this->notify(new ResetPasswordNotification($url));
     }
 }
