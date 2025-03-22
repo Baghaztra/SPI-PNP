@@ -21,10 +21,10 @@
             </a>
             <div class="collapse {{ request()->is('siwas/keuangan*') ? 'show' : '' }}" id="keuangan">
                 <div class="sub-menu">
-                    <a href="#" class="list-group-item">Realisasi Anggaran</a>
-                    <a href="#" class="list-group-item">Realisasi PNBP</a>
-                    <a href="#" class="list-group-item">Laporan Keuangan</a>
-                    <a href="#" class="list-group-item">Cash Opname</a>
+                    <a href="{{ route('siwas.realisasi_anggaran.index') }}" class="list-group-item">Realisasi Anggaran</a>
+                    <a href="{{ route('siwas.realisasi_pnbp.index') }}" class="list-group-item">Realisasi PNBP</a>
+                    <a href="{{ route('siwas.laporan_keuangan.index') }}" class="list-group-item">Laporan Keuangan</a>
+                    <a href="{{ route('siwas.cash_opname.index') }}" class="list-group-item">Cash Opname</a>
                 </div>
             </div>
         </div>
@@ -39,9 +39,9 @@
             </a>
             <div class="collapse {{ request()->is('siwas/pbj*') ? 'show' : '' }}" id="pbj">
                 <div class="sub-menu">
-                    <a href="#" class="list-group-item">Paket Kegiatan</a>
-                    <a href="#" class="list-group-item">Serah Terima</a>
-                    <a href="#" class="list-group-item">Stock Opname</a>
+                    <a href="{{ route('siwas.paket_kegiatan.index') }}" class="list-group-item">Paket Kegiatan</a>
+                    <a href="{{ route('siwas.serah_terima.index') }}" class="list-group-item">Serah Terima</a>
+                    <a href="{{ route('siwas.stock_opname.index') }}" class="list-group-item">Stock Opname</a>
                 </div>
             </div>
         </div>
@@ -56,9 +56,9 @@
             </a>
             <div class="collapse {{ request()->is('siwas/sdm*') ? 'show' : '' }}" id="sdm">
                 <div class="sub-menu">
-                    <a href="#" class="list-group-item">Studi Lanjut</a>
-                    <a href="#" class="list-group-item">Masa Pensiun</a>
-                    <a href="#" class="list-group-item">LHKPN/LHKASN</a>
+                    <a href="{{ route('siwas.studi_lanjut.index') }}" class="list-group-item">Studi Lanjut</a>
+                    <a href="{{ route('siwas.masa_pensiun.index') }}" class="list-group-item">Masa Pensiun</a>
+                    <a href="{{ route('siwas.lhkpn.index') }}" class="list-group-item">LHKPN/LHKASN</a>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <span>Review RKAKL</span>
         </a>
 
-        <a href="{{ route('siwas.dokumen_spi.index') }}" class="list-group-item">
+        <a href="{{ route('siwas.dokumen_spi.index') }}" class="list-group-item {{ request()->routeIs('siwas.dokumen_spi.index') ? 'active' : '' }}">
             <i class="fas fa-file-contract"></i>
             <span>Dokumen SPI</span>
         </a>
