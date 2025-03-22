@@ -70,7 +70,7 @@
             <span>Review RKAKL</span>
         </a>
 
-        <a href="#" class="list-group-item">
+        <a href="{{ route('siwas.dokumen_spi.index') }}" class="list-group-item">
             <i class="fas fa-file-contract"></i>
             <span>Dokumen SPI</span>
         </a>

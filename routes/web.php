@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DokumenController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SigninController;
@@ -16,26 +17,25 @@ Route::middleware(['guest'])->group(function () {
         return view('SIWAS.signin');
     })->name('login');
     Route::post('proses', [SigninController::class, 'authentication'])->name('proses-signin');
+});
 
+// Profile Routes
+Route::prefix('profile')->name('profile.')->group(function () {
+    Route::get('/sejarah', function () {
+        return view('profile.sejarah');
+    })->name('sejarah');
 
-    // Profile Routes
-    Route::prefix('profile')->name('profile.')->group(function () {
-        Route::get('/sejarah', function () {
-            return view('profile.sejarah');
-        })->name('sejarah');
+    Route::get('/struktur', function () {
+        return view('profile.struktur');
+    })->name('struktur');
 
-        Route::get('/struktur', function () {
-            return view('profile.struktur');
-        })->name('struktur');
+    Route::get('/visi-misi', function () {
+        return view('profile.visi-misi');
+    })->name('visi-misi');
 
-        Route::get('/visi-misi', function () {
-            return view('profile.visi-misi');
-        })->name('visi-misi');
-
-        Route::get('/tugas-fungsi', function () {
-            return view('profile.tugas-fungsi');
-        })->name('tugas-fungsi');
-    });
+    Route::get('/tugas-fungsi', function () {
+        return view('profile.tugas-fungsi');
+    })->name('tugas-fungsi');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -62,6 +62,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users/edit', function () {
             return view('siwas.users.edit');
         })->name('users.edit');
+
+        Route::resource('dokumen_spi', DokumenController::class)
+            ->names('dokumen_spi')
+            ->except(['edit', 'update', 'show']);
     });
 });
 

@@ -20,7 +20,7 @@ class SignInController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect('')->with('success-login', 'Welcome Back!');
+            return redirect('/siwas/dashboard')->with('success-login', 'Welcome Back!');
         } else {
             return redirect('login')->with('error', 'Email atau password salah.')->onlyInput('email');
         }
