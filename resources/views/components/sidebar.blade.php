@@ -65,7 +65,7 @@
 
         <div class="sidebar-divider"></div>
 
-        <a href="#" class="list-group-item">
+        <a href="{{ route('siwas.rkakl.index') }}" class="list-group-item {{ request()->routeIs('siwas.rkakl.index') ? 'active' : '' }}">
             <i class="fas fa-file-alt"></i>
             <span>Review RKAKL</span>
         </a>
@@ -75,7 +75,7 @@
             <span>Dokumen SPI</span>
         </a>
 
-        <a href="#" class="list-group-item">
+        <a href="{{ route('siwas.data_referensi.index') }}" class="list-group-item {{ request()->routeIs('siwas.data_referensi.index') ? 'active' : '' }}">
             <i class="fas fa-database"></i>
             <span>Data Referensi</span>
         </a>

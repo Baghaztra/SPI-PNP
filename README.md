@@ -26,13 +26,13 @@ Aplikasi web berbasis **Laravel 12** untuk mengelola data internal kampus Polite
 
 ## Instalasi
 
-1. **Clone Repository**
+1. Clone Repository
 ```bash
 git clone https://github.com/Baghaztra/SPI-PNP.git
 cd SPI-PNP
 ```
 
-2. **Install Dependensi**
+2. Install Dependensi
 ```bash
 composer install
 ```
@@ -47,11 +47,17 @@ composer install
 php artisan key:generate
 ```
 
-5. Migrasi & Seeding (Opsional) Jika sudah ada data awal atau untuk testing, jalankan:
+5. Migrasi & Seeding:
 ```bash
 php artisan migrate --seed
 ```
-6. Jalankan Aplikasi
+
+6. Membuat tempat penyimpanan:
+```bash
+php artisan storage:link
+```
+
+7. Jalankan Aplikasi
 ```bash
 php artisan serve
 ```
