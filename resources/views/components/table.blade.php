@@ -92,7 +92,7 @@
                                             Lihat
                                         </a>
                                     </td>
-                                    <td>{{ $dokumen->tanggal }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($dokumen->tanggal)->format('d-m-Y') }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-danger"
                                             onclick="confirmDelete('{{ route($delete, $dokumen) }}')">
