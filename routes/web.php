@@ -16,6 +16,7 @@ use App\Http\Controllers\RKAKLController;
 use App\Http\Controllers\SerahTerimaController;
 use App\Http\Controllers\StockOpnameController;
 use App\Http\Controllers\StudiLanjutController;
+use App\Http\Controllers\DashboardController;
 
 // Landing Page
 Route::get('/', function () {
@@ -53,9 +54,7 @@ Route::prefix('profile')->name('profile.')->group(function () {
 Route::middleware(['auth'])->group(function () {
     // SIWAS Routes
     Route::prefix('siwas')->name('siwas.')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('siwas.dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('/profile', function () {
             return view('siwas.profile');
@@ -79,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('realisasi_anggaran', RealisasiAnggaranController::class)
             ->names('realisasi_anggaran')
             ->except(['edit', 'update', 'show']);
-            
+
         Route::resource('realisasi_pnbp', RealisasiPNBPController::class)
             ->names('realisasi_pnbp')
             ->except(['edit', 'update', 'show']);
