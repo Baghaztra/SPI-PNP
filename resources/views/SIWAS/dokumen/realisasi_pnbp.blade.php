@@ -3,8 +3,9 @@
 @section('title', 'Realisasi PNBP')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="Realisasi PNBP"
         add="siwas.realisasi_pnbp.store"
         show="file_realisasi_pnbp"

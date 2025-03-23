@@ -3,8 +3,9 @@
 @section('title', 'Laporan Keuangan')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="Laporan Keuangan"
         add="siwas.laporan_keuangan.store"
         show="file_laporan_keuangan"

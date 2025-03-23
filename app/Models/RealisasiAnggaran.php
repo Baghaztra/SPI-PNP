@@ -10,7 +10,7 @@ class RealisasiAnggaran extends Model implements HasMedia
 {
     use InteractsWithMedia;
 
-    protected $fillable = ['judul'];
+    protected $fillable = ['judul','tanggal'];
 
     public function registerMediaCollections(): void
     {

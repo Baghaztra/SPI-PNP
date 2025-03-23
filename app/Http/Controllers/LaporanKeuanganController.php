@@ -10,17 +10,19 @@ class LaporanKeuanganController extends Controller
     public function index()
     {
         $dokumens = LaporanKeuangan::with('media')->get();
-        return view('SIWAS.dokumen.laporan', compact('dokumens'));
+        $tanggal = LaporanKeuangan::select('tanggal')->distinct()->get();
+        return view('SIWAS.dokumen.laporan_keuangan', compact('dokumens', 'tanggal'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'judul' => 'required',
+            'tanggal' => 'required',
             'file' => 'required|file|mimes:pdf|max:10240'
         ]);
 
-        $dokumen = LaporanKeuangan::create(['judul' => $request->judul]);
+        $dokumen = LaporanKeuangan::create(['judul' => $request->judul, 'tanggal' => $request->tanggal]);
 
         if ($request->hasFile('file')) {
             $dokumen->addMedia($request->file('file'))->toMediaCollection('file_laporan_keuangan');

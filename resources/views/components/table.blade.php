@@ -1,6 +1,7 @@
 @props([
     'page_title' => 'No title',
     'dokumens' => [],
+    'tanggal' => [],
     'add' => '',
     'show' => '',
     'delete' => '',
@@ -47,6 +48,10 @@
                                 placeholder="Masukkan judul dokumen" required>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Tanggal Dokument</label>
+                            <input type="date" id="tanggal" name="tanggal" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">File (PDF)</label>
                             <input type="file" name="file" class="form-control" accept=".pdf" required>
                         </div>
@@ -73,6 +78,7 @@
                             <tr>
                                 <th>Judul</th>
                                 <th>Dokumen</th>
+                                <th>Tanggal Document</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -86,6 +92,7 @@
                                             Lihat
                                         </a>
                                     </td>
+                                    <td>{{ $dokumen->tanggal }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-danger"
                                             onclick="confirmDelete('{{ route($delete, $dokumen) }}')">
