@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('studi_lanjuts', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

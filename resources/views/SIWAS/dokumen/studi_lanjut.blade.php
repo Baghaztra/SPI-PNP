@@ -3,8 +3,9 @@
 @section('title', 'Studi Lanjut')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="Studi Lanjut"
         add="siwas.studi_lanjut.store"
         show="file_studi_lanjut"

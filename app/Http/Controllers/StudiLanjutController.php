@@ -10,17 +10,19 @@ class StudiLanjutController extends Controller
     public function index()
     {
         $dokumens = StudiLanjut::with('media')->get();
-        return view('SIWAS.dokumen.studi_lanjut', compact('dokumens'));
+        $tanggal = StudiLanjut::select('tanggal')->distinct()->get();
+        return view('SIWAS.dokumen.studi_lanjut', compact('dokumens', 'tanggal'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'judul' => 'required',
+            'tanggal' => 'required',
             'file' => 'required|file|mimes:pdf|max:10240'
         ]);
 
-        $dokumen = StudiLanjut::create(['judul' => $request->judul]);
+        $dokumen = StudiLanjut::create(['judul' => $request->judul, 'tanggal' => $request->tanggal]);
 
         if ($request->hasFile('file')) {
             $dokumen->addMedia($request->file('file'))->toMediaCollection('file_studi_lanjut');

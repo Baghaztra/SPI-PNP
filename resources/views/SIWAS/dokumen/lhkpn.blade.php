@@ -3,8 +3,9 @@
 @section('title', 'LHKPN/LHKASN')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="LHKPN/LHKASN"
         add="siwas.lhkpn.store"
         show="file_lhkpn"
