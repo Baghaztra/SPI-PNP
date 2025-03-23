@@ -106,7 +106,7 @@
                                     </div> --}}
 
                                     <!-- Submit Button -->
-                                    <button class="btn w-100 py-8 fs-6 mb-4 rounded-2 fs-2"
+                                    <button class="btn w-100 py-8 fs-6 mb-4 rounded-2"
                                         type="submit" style="background-color: #ff6b2b; color: white;">Sign In</button>
                                 </form>
                                 <!-- End Login Form -->

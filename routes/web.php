@@ -2,21 +2,22 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LHKPNController;
+use App\Http\Controllers\RKAKLController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CashOpnameController;
-use App\Http\Controllers\DataReferensiController;
-use App\Http\Controllers\LaporanKeuanganController;
-use App\Http\Controllers\LHKPNController;
 use App\Http\Controllers\MasaPensiunController;
-use App\Http\Controllers\PaketKegiatanController;
-use App\Http\Controllers\RealisasiAnggaranController;
-use App\Http\Controllers\RealisasiPNBPController;
-use App\Http\Controllers\RKAKLController;
 use App\Http\Controllers\SerahTerimaController;
 use App\Http\Controllers\StockOpnameController;
 use App\Http\Controllers\StudiLanjutController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataReferensiController;
+use App\Http\Controllers\PaketKegiatanController;
+use App\Http\Controllers\RealisasiPNBPController;
+use App\Http\Controllers\LaporanKeuanganController;
+use App\Http\Controllers\RealisasiAnggaranController;
 
 // Landing Page
 Route::get('/', function () {
@@ -60,19 +61,14 @@ Route::middleware(['auth'])->group(function () {
             return view('siwas.profile');
         })->name('profile');
 
-        Route::get('/settings', function () {
-            return view('siwas.settings');
-        })->name('settings');
 
-        Route::get('/users', function () {
-            return view('siwas.users.index');
-        })->name('users.index');
-        Route::get('/users/create', function () {
-            return view('siwas.users.create');
-        })->name('users.create');
-        Route::get('/users/edit', function () {
-            return view('siwas.users.edit');
-        })->name('users.edit');
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
 
         // Perdokumenan
         Route::resource('realisasi_anggaran', RealisasiAnggaranController::class)

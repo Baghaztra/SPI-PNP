@@ -20,12 +20,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('12qwaszx'),
+            'status' => 1,
         ]);
-        
+
         User::create([
             'name' => 'Admin2',
             'email' => 'test@example.com',
             'password' => Hash::make('1'),
+            'status' => 1,
         ]);
     }
 }

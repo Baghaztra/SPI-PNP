@@ -3,7 +3,7 @@
         <div class="navbar-brand d-flex gap-3">
             <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" style="height: 50px; width: auto;">
             <div>
-                <a href="{{ route('siwas.dashboard') }}"><h1 class="mb-0 fs-4" style="color: white">Satuan Pengawas Internal | PNP</h1></a>
+                <h1 class="mb-0 fs-4" style="color: white">Satuan Pengawas Internal | PNP</h1>
                 <span class="fs-6">Profesional dan berintegritas</span>
             </div>
         </div>
