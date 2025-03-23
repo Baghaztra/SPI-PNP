@@ -3,8 +3,9 @@
 @section('title', 'Paket Kegiatan')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="Paket Kegiatan"
         add="siwas.paket_kegiatan.store"
         show="file_paket_kegiatan"

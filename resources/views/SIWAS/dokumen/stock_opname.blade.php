@@ -3,8 +3,9 @@
 @section('title', 'Stock Opname')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="Stock Opname"
         add="siwas.stock_opname.store"
         show="file_stock_opname"

@@ -10,17 +10,19 @@ class StockOpnameController extends Controller
     public function index()
     {
         $dokumens = StockOpname::with('media')->get();
-        return view('SIWAS.dokumen.stock_opname', compact('dokumens'));
+        $tanggal = StockOpname::select('tanggal')->distinct()->get();
+        return view('SIWAS.dokumen.stock_opname', compact('dokumens', 'tanggal'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'judul' => 'required',
+            'tanggal' => 'required',
             'file' => 'required|file|mimes:pdf|max:10240'
         ]);
 
-        $dokumen = StockOpname::create(['judul' => $request->judul]);
+        $dokumen = StockOpname::create(['judul' => $request->judul, 'tanggal' => $request->tanggal]);
 
         if ($request->hasFile('file')) {
             $dokumen->addMedia($request->file('file'))->toMediaCollection('file_stock_opname');
