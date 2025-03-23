@@ -10,17 +10,19 @@ class DokumenController extends Controller
     public function index()
     {
         $dokumens = Dokumen::with('media')->get();
-        return view('SIWAS.dokumen.dokumen_spi', compact('dokumens'));
+        $tanggal = Dokumen::select('tanggal')->distinct()->get();
+        return view('SIWAS.dokumen.dokumen_spi', compact('dokumens', 'tanggal'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'judul' => 'required',
+            'tanggal' => 'required',
             'file' => 'required|file|mimes:pdf|max:10240'
         ]);
 
-        $dokumen = Dokumen::create(['judul' => $request->judul]);
+        $dokumen = Dokumen::create(['judul' => $request->judul, 'tanggal' => $request->tanggal]);
 
         if ($request->hasFile('file')) {
             $dokumen->addMedia($request->file('file'))->toMediaCollection('file_dokumen_spi');

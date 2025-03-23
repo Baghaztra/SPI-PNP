@@ -3,8 +3,9 @@
 @section('title', 'Dokumen SPI')
 
 @section('content')
-    <x-table 
-        :dokumens="$dokumens" 
+    <x-table
+        :dokumens="$dokumens"
+        :tanggal="$tanggal"
         page_title="Dokumen SPI"
         add="siwas.dokumen_spi.store"
         show="file_dokumen_spi"

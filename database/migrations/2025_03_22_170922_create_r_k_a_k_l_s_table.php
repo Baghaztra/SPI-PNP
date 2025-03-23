@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('r_k_a_k_l_s', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }
