@@ -5,7 +5,9 @@
 @section('content')
     <x-table
         :dokumens="$dokumens"
-        :tanggal="$tanggal"
+        :tanggalList="$tanggalList"
+        :bulanTahunList="$bulanTahunList"
+        :tahunList="$tahunList"
         page_title="Dokumen SPI"
         add="siwas.dokumen_spi.store"
         show="file_dokumen_spi"
