@@ -1,28 +1,16 @@
-<p align="center"><img src="./public/images/logo.png" width="200" alt="PNP Logo"></p>
+<p align="center"><img src="./public/assets/images/logo.png" width="200" alt="PNP Logo"></p>
 
 # Satuan Pengawas Internal | PNP
 
 Aplikasi web berbasis **Laravel 12** untuk mengelola data internal kampus Politeknik Negeri Padang.
 
-## Teknologi yang Digunakan
-
-- **Laravel 12**  
-  Framework PHP modern untuk membangun aplikasi web yang terstruktur.
-- **SQLite**  
-  Database default yang ringan dan mudah dikonfigurasi, ideal untuk tahap awal pengembangan.
-- **Composer**  
-  Dependency manager untuk PHP.
-
 ## Teknologi Penjunjang
 
-- **Manajemen Pengguna & Hak Akses**  
-  Menggunakan [Spatie Laravel Permission](https://github.com/spatie/laravel-permission) untuk mengelola peran dan izin dengan dua level: _super admin_ dan _admin_.
-  
-- **Import/Export Data**  
-  Menggunakan [Laravel Excel](https://github.com/Maatwebsite/Laravel-Excel) untuk memudahkan proses import dan export data, misalnya laporan realisasi anggaran.
+- **Antarmuka Pengguna**  
+  Menggunakan [Bootstrap](https://getbootstrap.com/) untuk membangun antarmuka pengguna yang responsif dan modern.
 
 - **Manajemen Dokumen**  
-  Menggunakan [Spatie Laravel Medialibrary](https://github.com/spatie/laravel-medialibrary) untuk pengelolaan file dan dokumen secara otomatis (upload, penyimpanan, transformasi file).
+  Menggunakan [Spatie Laravel Medialibrary](https://github.com/spatie/laravel-medialibrary) untuk pengelolaan file dan dokumen.
 
 ## Instalasi
 
@@ -62,4 +50,10 @@ php artisan storage:link
 php artisan serve
 ```
 
-Akses aplikasi melalui browser di http://localhost:8000.
+## Masuk ke Aplikasi
+
+1. Akses aplikasi melalui browser di [http://localhost:8000](http://localhost:8000)
+
+2. Masuk ke laman SIWAS dari menu di nav bar
+
+3. Login dengan username `admin@gmail.com` dan password `12qwaszx`

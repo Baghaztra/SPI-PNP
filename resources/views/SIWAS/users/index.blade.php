@@ -4,10 +4,12 @@
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Users Management</h1>
-        <a href="{{ route('siwas.users.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus me-2"></i>Add New User
-        </a>
+        <h1 class="h3 mb-0 text-gray-800">Users Management</h1>   
+        @if(auth()->user()->isSuperAdmin())
+            <a href="{{ route('siwas.users.create') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Add New User
+            </a>
+        @endif
     </div>
 
     <div class="card shadow">
@@ -18,9 +20,11 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            {{-- <th>Role</th> --}}
+                            <th>Role</th>
                             <th>Status</th>
+                            @if(auth()->user()->isSuperAdmin())
                             <th>Actions</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -30,22 +34,28 @@
                                 <td>{{ $user->email }}</td>
                                 {{-- <td>{{ ucfirst($user->role) }}</td> --}}
                                 <td>
+                                    <span class="badge bg-{{ $user->role == 'super-admin' ? 'primary' : 'secondary' }}">
+                                        {{ $user->role == 'super-admin' ? 'Super Admin' : 'Admin' }}
+                                    </span>
+                                </td>
+                                <td>
                                     <span class="badge bg-{{ $user->status ? 'success' : 'secondary' }}">
                                         {{ $user->status ? 'Active' : 'Disabled' }}
                                     </span>
                                 </td>
+                                @if(auth()->user()->isSuperAdmin())
                                 <td>
                                     <a href="{{ route('siwas.users.edit', $user->id) }}"
                                         class="btn btn-sm btn-warning me-2">
                                         <i class="fas fa-edit"></i>
                                     </a>
-
                                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#deleteModal"
                                         data-user-id="{{ route('siwas.users.destroy', $user->id) }}">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

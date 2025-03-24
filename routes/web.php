@@ -18,6 +18,7 @@ use App\Http\Controllers\PaketKegiatanController;
 use App\Http\Controllers\RealisasiPNBPController;
 use App\Http\Controllers\LaporanKeuanganController;
 use App\Http\Controllers\RealisasiAnggaranController;
+use App\Http\Middleware\SuperAdminMiddleware;
 
 // Landing Page
 Route::get('/', function () {
@@ -63,12 +64,13 @@ Route::middleware(['auth'])->group(function () {
 
 
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
-        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-        Route::post('/users', [UserController::class, 'store'])->name('users.store');
-        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-        Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
-        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-
+        Route::middleware(SuperAdminMiddleware::class)->group(function () {
+            Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+            Route::post('/users', [UserController::class, 'store'])->name('users.store');
+            Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+            Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+            Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+        });
 
         // Perdokumenan
         Route::resource('realisasi_anggaran', RealisasiAnggaranController::class)
