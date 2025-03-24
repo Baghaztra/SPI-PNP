@@ -1,7 +1,9 @@
 @props([
     'page_title' => 'No title',
     'dokumens' => [],
-    'tanggal' => [],
+    'tanggalList' => [],
+    'bulanTahunList',
+    'tahunList',
     'add' => '',
     'show' => '',
     'delete' => '',
@@ -62,6 +64,50 @@
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <!-- Filter Dokumen -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Filter Dokumen</h5>
+            <form method="GET" action="{{ request()->url() }}" class="mb-3" id="filterForm">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="date" name="tanggal" id="tanggal" class="form-control"
+                            placeholder="Cari berdasarkan tanggal" value="{{ request('tanggal') }}"
+                            onchange="clearFilters('tanggal')">
+                    </div>
+                    <div class="col-md-3">
+                        <select name="bulan_tahun" id="bulan_tahun" class="form-control"
+                            onchange="clearFilters('bulan_tahun')">
+                            <option value="">Cari berdasarkan bulan & tahun</option>
+                            @foreach ($bulanTahunList as $bulanTahun)
+                                <option value="{{ $bulanTahun }}"
+                                    {{ request('bulan_tahun') == $bulanTahun ? 'selected' : '' }}>
+                                    {{ \Carbon\Carbon::createFromFormat('Y-m', $bulanTahun)->translatedFormat('F Y') }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <select name="tahun" id="tahun" class="form-control" onchange="clearFilters('tahun')">
+                            <option value="">Cari berdasarkan tahun</option>
+                            @foreach ($tahunList as $tahun)
+                                <option value="{{ $tahun }}" {{ request('tahun') == $tahun ? 'selected' : '' }}>
+                                    {{ $tahun }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                        <a href="{{ request()->url() }}" class="btn btn-secondary">Reset</a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -141,6 +187,19 @@
             form.action = actionUrl;
             let modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
             modal.show();
+        }
+
+        // Script clear filters
+        function clearFilters(selected) {
+            if (selected !== 'tanggal') {
+                document.getElementById('tanggal').value = '';
+            }
+            if (selected !== 'bulan_tahun') {
+                document.getElementById('bulan_tahun').value = '';
+            }
+            if (selected !== 'tahun') {
+                document.getElementById('tahun').value = '';
+            }
         }
     </script>
 @endpush
