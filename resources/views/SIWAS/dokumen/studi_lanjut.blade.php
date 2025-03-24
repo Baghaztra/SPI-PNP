@@ -5,7 +5,9 @@
 @section('content')
     <x-table
         :dokumens="$dokumens"
-        :tanggal="$tanggal"
+        :tanggalList="$tanggalList"
+        :bulanTahunList="$bulanTahunList"
+        :tahunList="$tahunList"
         page_title="Studi Lanjut"
         add="siwas.studi_lanjut.store"
         show="file_studi_lanjut"

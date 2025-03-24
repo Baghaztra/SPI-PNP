@@ -5,7 +5,9 @@
 @section('content')
     <x-table
         :dokumens="$dokumens"
-        :tanggal="$tanggal"
+        :tanggalList="$tanggalList"
+        :bulanTahunList="$bulanTahunList"
+        :tahunList="$tahunList"
         page_title="Masa Pensiun"
         add="siwas.masa_pensiun.store"
         show="file_masa_pensiun"

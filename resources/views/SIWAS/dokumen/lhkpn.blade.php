@@ -5,7 +5,9 @@
 @section('content')
     <x-table
         :dokumens="$dokumens"
-        :tanggal="$tanggal"
+        :tanggalList="$tanggalList"
+        :bulanTahunList="$bulanTahunList"
+        :tahunList="$tahunList"
         page_title="LHKPN/LHKASN"
         add="siwas.lhkpn.store"
         show="file_lhkpn"
