@@ -57,3 +57,6 @@ php artisan serve
 2. Masuk ke laman SIWAS dari menu di nav bar
 
 3. Login dengan username `admin@gmail.com` dan password `12qwaszx`
+
+## Credits
+&copy; Baghaztra van Ril & Firman Ardiansyah
